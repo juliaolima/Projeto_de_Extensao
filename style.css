@@ -1,0 +1,149 @@
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(160deg, #e6f0ff 0%, #f0e8ff 50%, #efe6ff 100%);
+  padding: 40px 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: 920px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,255,0.9));
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(70,60,100,0.12);
+  text-align: center;
+  border: 1px solid rgba(120,100,200,0.06);
+}
+
+h2 {
+  color: #2b2b3a;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 88%;
+  max-width: 720px;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid rgba(120,110,200,0.18);
+  border-radius: 10px;
+  font-size: 15px;
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  outline: none;
+  transition: box-shadow .18s ease, transform .08s ease;
+}
+
+input:focus, select:focus {
+  box-shadow: 0 6px 18px rgba(120,100,200,0.12);
+  transform: translateY(-1px);
+  border-color: rgba(95,75,200,0.35);
+}
+
+button, .btn-cadastrar {
+  background: linear-gradient(90deg, #5b7bff 0%, #8e6bff 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  box-shadow: 0 6px 16px rgba(90,80,160,0.12);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s linear;
+}
+
+button:hover, .btn-cadastrar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(70,60,140,0.14);
+  opacity: 0.98;
+}
+
+.resultado {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  min-height: 20px;
+}
+
+.encontrado {
+  color: #107a38;
+}
+
+.nao-encontrado {
+  color: #b02a2a;
+}
+
+/* Novos estilos para cadastro e lista */
+.cadastro {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.campo {
+  width: 92%;
+  box-sizing: border-box;
+}
+
+.lista-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.lista-controls label {
+  font-size: 14px;
+  color: #444;
+}
+
+.lista-container {
+  margin-top: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+  text-align: left;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(100,90,140,0.06);
+  background: linear-gradient(180deg, rgba(250,250,255,0.9), rgba(245,243,255,0.9));
+}
+
+.livro-item {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(220,220,230,0.6);
+  font-size: 15px;
+  color: #2b2b3a;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.livro-item b { color: #222; }
+
+.livro-meta { color: #5d5875; font-size: 13px; }
+
+/* mensagens de cadastro (sumir após tempo) */
+.mensagem {
+  transition: opacity .6s ease;
+  opacity: 1;
+}
+
+.mensagem.fade-out {
+  opacity: 0;
+}
+
+/* Pequeno ajuste responsivo */
+@media (max-width: 720px) {
+  .container { width: 100%; padding: 18px; }
+  input, .campo, select { width: 100%; max-width: 100%; }
+  .livro-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+}

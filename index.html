@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Verificação de Livros - Sebo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>🔍 Verificação de Livro - Sebo</h2>
+    <input type="text" id="nomeLivro" placeholder="Digite o nome do livro">
+    <button onclick="verificarLivro()">Verificar</button>
+
+    <div id="resultado" class="resultado"></div>
+
+    <hr>
+
+    <h3>➕ Cadastrar novo livro</h3>
+    <div class="cadastro">
+      <input type="text" id="novoTitulo" class="campo" placeholder="Título do livro">
+      <input type="text" id="novoAutor" class="campo" placeholder="Autor">
+      <button onclick="cadastrarLivro()">Cadastrar</button>
+      <div id="cadastroResultado" class="resultado"></div>
+    </div>
+
+    <hr>
+
+    <h3>📚 Lista do sebo</h3>
+    <div class="lista-controls">
+      <label for="ordenarPor">Ordenar por:</label>
+      <select id="ordenarPor" aria-label="Ordenar lista de livros">
+        <option value="titulo">Título</option>
+        <option value="autor">Autor</option>
+      </select>
+    </div>
+
+    <div id="listaLivros" class="lista-container"></div>
+  </div>
+
+</body>
+<script src="script.js"></script>
+</html>
