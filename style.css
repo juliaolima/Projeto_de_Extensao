@@ -79,7 +79,7 @@ button:hover, .btn-cadastrar:hover {
   color: #b02a2a;
 }
 
-/* Novos estilos para cadastro e lista */
+
 .cadastro {
   margin-top: 8px;
   display: flex;
@@ -131,7 +131,7 @@ button:hover, .btn-cadastrar:hover {
 
 .livro-meta { color: #5d5875; font-size: 13px; }
 
-/* mensagens de cadastro (sumir após tempo) */
+
 .mensagem {
   transition: opacity .6s ease;
   opacity: 1;
@@ -141,7 +141,7 @@ button:hover, .btn-cadastrar:hover {
   opacity: 0;
 }
 
-/* Pequeno ajuste responsivo */
+
 @media (max-width: 720px) {
   .container { width: 100%; padding: 18px; }
   input, .campo, select { width: 100%; max-width: 100%; }

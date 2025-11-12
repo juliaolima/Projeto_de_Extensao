@@ -1,4 +1,4 @@
-// Base de dados simulada (poderia vir de um arquivo JSON ou banco real)
+// Base de dados
 const baseDeLivros = [
   { titulo: "Dom Casmurro", autor: "Machado de Assis" },
   { titulo: "O Pequeno Príncipe", autor: "Antoine de Saint-Exupéry" },
@@ -51,7 +51,7 @@ function verificarLivro() {
     return;
   }
 
-  // Procura se o livro existe na base
+  
   const livroEncontrado = baseDeLivros.find(livro =>
     livro.titulo.toLowerCase() === input
   );
@@ -60,7 +60,7 @@ function verificarLivro() {
     resultadoDiv.className = "resultado encontrado";
     resultadoDiv.innerHTML = `<div>✅ Livro encontrado: <br><b>${escapeHtml(livroEncontrado.titulo)}</b><br><span class="livro-meta">Autor: ${escapeHtml(livroEncontrado.autor)}</span></div>`;
 
-    // cria botão Excluir para o livro encontrado
+    
     const btnExcluir = document.createElement('button');
     btnExcluir.type = 'button';
     btnExcluir.textContent = 'Excluir';
@@ -76,7 +76,7 @@ function verificarLivro() {
   }
 }
 
-// Excluir livro da base simulada por título (case-insensitive)
+
 function excluirLivro(titulo) {
   const idx = baseDeLivros.findIndex(l => l.titulo.toLowerCase() === titulo.toLowerCase());
   const resultadoDiv = document.getElementById("resultado");
@@ -106,7 +106,7 @@ function excluirLivro(titulo) {
   }
 }
 
-/* utilitário simples para evitar injeção no DOM */
+
 function escapeHtml(str = "") {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -116,16 +116,16 @@ function escapeHtml(str = "") {
     .replace(/'/g, "&#039;");
 }
 
-// Função para renderizar lista (se houver um container com id="listaLivros")
+
 function renderLista() {
   const lista = document.getElementById("listaLivros");
   if (!lista) return;
 
-  // pega critério de ordenação (por título ou autor)
+ 
   const ordenarPorSelect = document.getElementById("ordenarPor");
   const sortKey = ordenarPorSelect ? ordenarPorSelect.value : "titulo";
 
-  // cria cópia e ordena sem mutação da base original
+
   const ordenada = [...baseDeLivros].sort((a, b) =>
     a[sortKey].localeCompare(b[sortKey], "pt", { sensitivity: "base" })
   );
@@ -139,7 +139,7 @@ function renderLista() {
   });
 }
 
-// Função para cadastrar novo livro (usa inputs com ids novoTitulo e novoAutor)
+
 function cadastrarLivro() {
   const tituloInput = document.getElementById("novoTitulo");
   const autorInput = document.getElementById("novoAutor");
@@ -157,18 +157,18 @@ function cadastrarLivro() {
     if (mensagem) {
       mensagem.textContent = "Preencha título e autor antes de cadastrar.";
       mensagem.classList.remove("fade-out");
-      // limpa mensagem automaticamente também se quiser
+      
       clearTimeout(mensagem._timeoutId);
       mensagem._timeoutId = setTimeout(() => {
         mensagem.classList.add("fade-out");
-        // remove texto após transição (600ms)
+        
         setTimeout(() => (mensagem.textContent = ""), 650);
       }, 5000);
     }
     return;
   }
 
-  // Verifica duplicata por título (case-insensitive)
+  
   const existe = baseDeLivros.some(l => l.titulo.toLowerCase() === titulo.toLowerCase());
   if (existe) {
     if (mensagem) {
@@ -183,19 +183,19 @@ function cadastrarLivro() {
     return;
   }
 
-  // Adiciona novo livro
+ 
   baseDeLivros.push({ titulo, autor });
 
-  // Atualiza UI
+ 
   if (mensagem) {
     mensagem.textContent = `✅ Livro cadastrado: ${titulo} — ${autor}`;
     mensagem.classList.remove("fade-out");
-    // limpa timeout anterior se houver
+    
     clearTimeout(mensagem._timeoutId);
-    // faz a mensagem desaparecer depois de 5 segundos
+    
     mensagem._timeoutId = setTimeout(() => {
       mensagem.classList.add("fade-out");
-      // remove texto após transição (600ms)
+      
       setTimeout(() => (mensagem.textContent = ""), 650);
     }, 5000);
   }
@@ -205,7 +205,7 @@ function cadastrarLivro() {
   renderLista();
 }
 
-// Inicializa lista ao carregar, se houver container e adiciona listener de ordenação
+
 document.addEventListener("DOMContentLoaded", () => {
   renderLista();
   const ordenarPorSelect = document.getElementById("ordenarPor");
