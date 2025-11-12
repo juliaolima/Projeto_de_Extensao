@@ -58,7 +58,8 @@ function verificarLivro() {
 
   if (livroEncontrado) {
     resultadoDiv.className = "resultado encontrado";
-    resultadoDiv.innerHTML = `<div>✅ Livro encontrado: <br><b>${escapeHtml(livroEncontrado.titulo)}</b><br><span class="livro-meta">Autor: ${escapeHtml(livroEncontrado.autor)}</span></div>`;
+    resultadoDiv.innerHTML = `<div>✅ Livro encontrado: <br><b>${escapeHtml(livroEncontrado.titulo)}
+    </b><br><span class="livro-meta">Autor: ${escapeHtml(livroEncontrado.autor)}</span></div>`;
 
     
     const btnExcluir = document.createElement('button');
